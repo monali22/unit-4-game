@@ -1,0 +1,51 @@
+body{
+    background-color: aqua
+}
+
+h1{
+    background-color: brown;
+    width: 18vw
+}
+
+#instructions{
+    height: 26vh;
+    width: 25vw;
+    background-color: coral;
+}
+
+
+
+#guessblock{
+  
+    height: 10vh;
+    width: 15vw;
+    background-color: green;
+   
+    margin-right: 5%
+}
+
+#winsLosses{
+
+    
+    height: 10vh;
+    width: 15vw;
+    background-color: rgb(190, 102, 20);
+    margin-bottom: 2%
+   
+}
+
+#buttongrp{
+
+   margin-left: 0%;
+    margin-top: 0%
+
+}
+
+button{
+   
+    height:10vh;
+    width: 5vw;
+    background-color: aliceblue;
+    margin-right: 3%
+}
+
