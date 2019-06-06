@@ -15,8 +15,14 @@
 
     <div id="instructions">
         <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab tempore, facilis tempora natus hic veniam ex
-            odit consequuntur obcaecati illum fugiat asperiores error totam sunt, omnis nobis sed adipisci molestiae?
+           You will be given a random number at the start of the game.
+           There are four crystals below you will add a specific amount after clicking
+           on them to your total score.
+           You win the game after you match the score to random number, or loose if 
+           score is greater than number.
+           The value of each crystal is hidden from you until you click on it.
+           Each time the game starts, the game will change the value of each crystal.
+
         </p>
     </div>
 
@@ -32,7 +38,7 @@
     </div>
 
 
-    <div id="buttongrp">
+    <div id="buttongrp" class=".imgrp">
 
         <input type="image" src="assets/images/hexagon.png" name="image" width="60" height="60" id="hexa">
 
@@ -80,6 +86,8 @@
             $("#losses").text(losses);
 
             var crysNum = [2, 4, 8, 9];
+
+
 
             var addCrystals = function () {
 
@@ -167,8 +175,7 @@
                     ++wins;
                     $("#wins").text(wins);
                     console.log("in  if (randNum == parseInt($('#score').text()))");
-                   
-                    check = true;
+                  
 
 
                 }
@@ -179,7 +186,7 @@
 
                     $("#losses").text(losses);
 
-                    check = true;
+                   
 
 
                     console.log("in  else if (randNum < parseInt($('#score').text()))");
