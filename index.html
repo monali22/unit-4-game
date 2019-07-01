@@ -15,13 +15,13 @@
 
     <div id="instructions">
         <p>
-           You will be given a random number at the start of the game.
-           There are four crystals below you will add a specific amount after clicking
-           on them to your total score.
-           You win the game after you match the score to random number, or loose if 
-           score is greater than number.
-           The value of each crystal is hidden from you until you click on it.
-           Each time the game starts, the game will change the value of each crystal.
+            You will be given a random number at the start of the game.
+            There are four crystals below you will add a specific amount after clicking
+            on them to your total score.
+            You win the game after you match the score to random number, or loose if
+            score is greater than number.
+            The value of each crystal is hidden from you until you click on it.
+            Each time the game starts, the game will change the value of each crystal.
 
         </p>
     </div>
@@ -31,7 +31,7 @@
 
         <p id="guessblock"> <span id="guessNumber">.....</span>
             <p>
-
+                <p id="wltext"></p>
                 <p id="Wins">Wins: <span id="wins"></span></p>
                 <p id="Losses">Losses:<span id="losses"></span></p>
 
@@ -40,13 +40,13 @@
 
     <div id="buttongrp" class=".imgrp">
 
-        <input type="image" src="assets/images/hexagon.png" name="image" width="60" height="60" id="hexa">
+        <input type="image" src="assets/images/hexagon.png" name="image" width="60" height="60" id="img1">
 
-        <input type="image" src="assets/images/circle.png" name="image" width="60" height="60" id="circ">
+        <input type="image" src="assets/images/circle.png" name="image" width="60" height="60" id="img2">
 
-        <input type="image" src="assets/images/octagon.png" name="image" width="60" height="60" id="octa">
+        <input type="image" src="assets/images/octagon.png" name="image" width="60" height="60" id="img3">
 
-        <input type="image" src="assets/images/square.jpeg" name="image" width="60" height="60" id="squa">
+        <input type="image" src="assets/images/square.jpeg" name="image" width="60" height="60" id="img4">
 
 
 
@@ -60,225 +60,7 @@
 
     <script src="https://code.jquery.com/jquery.js"></script>
 
-    <script type="text/javascript">
-
-        var wins = 0;
-        var losses = 0;
-        var check = false;
-
-        $(document).ready(function () {
-
-
-            var guessNumber = $("#guessNumber");
-
-            var randNum = Math.floor((Math.random() * 100) + 1);
-
-            guessNumber.text(randNum);
-
-
-            var score = $("#score");
-
-            score.text(0);
-
-
-            $("#wins").text(wins);
-
-            $("#losses").text(losses);
-
-            var crysNum = [2, 4, 8, 9];
-
-
-
-            var addCrystals = function () {
-
-
-
-                $("#hexa").on("click", function () {
-
-                    var num1 = score.text();
-
-                    console.log(num1+"num1");
-
-                    var num = parseInt(num1) + 6;
-
-                    console.log(num);
-
-                    score.text(num);
-
-                    checksum();
-
-                    
-
-                });
-
-
-                $("#circ").on("click", function () {
-
-                    var num1 = score.text();
-
-                    var num = parseInt(num1) + 1;
-
-                    score.text(num);
-
-                    checksum();
-                    
-
-
-                });
-
-
-                $("#octa").on("click", function () {
-
-                    var num1 = score.text();
-
-                    var num = parseInt(num1) + 8;
-
-                    score.text(num);
-                    checksum();
-                    
-
-
-
-                });
-
-                $("#squa").on("click", function () {
-
-                    var num1 = score.text();
-
-                    var num = parseInt(num1) + 4;
-
-                    score.text(num);
-
-                    
-                    checksum();
-
-
-                });
-
-                console.log("in else if (randNum >parseInt($('#score').text()))");
-
-               
-
-
-            }
-
-
-
-
-
-
-            var checksum = function () {
-
-                if (randNum === parseInt($('#score').text())) {
-
-
-                    ++wins;
-                    $("#wins").text(wins);
-                    console.log("in  if (randNum == parseInt($('#score').text()))");
-                  
-
-
-                }
-
-                else if (randNum < parseInt($('#score').text())) {
-
-                    ++losses;
-
-                    $("#losses").text(losses);
-
-                   
-
-
-                    console.log("in  else if (randNum < parseInt($('#score').text()))");
-                   
-
-                }
-
-                else {
-                    addCrystals();
-                }
-
-            }
-
-
-            checksum();
-
-
-
-
-
-
-
-            /* if (randNum === parseInt($('#score').text())) {
- 
- 
-                 ++wins;
-                 $("#wins").text(wins);
-                 console.log("in  if (randNum == parseInt($('#score').text()))");
-                 //jQuery.ready();
- 
-             }
- 
-             else if (randNum < parseInt($('#score').text())) {
- 
-                 ++losses;
- 
-                 $("#losses").text(losses);
- 
- 
-                 console.log("in  else if (randNum < parseInt($('#score').text()))");
-                 //jQuery.ready();
- 
-             }
-             else {
- 
-                 console.log("in  else");
-                 addCrystals();
- 
-             }*/
-
-
-
-
-
-
-
-
-            /*if (randNum == parseInt($('#score').text())) {
-
-
-                ++wins;
-                $("#wins").text(wins);
-                console.log("in  if (randNum == parseInt($('#score').text()))");
-
-            }
-            else if (randNum > parseInt($('#score').text())) {
-
-                addCrystals();
-
-            }
-            else if (randNum$ < parseInt($('#score').text())) {
-
-                ++losses;
-
-                $("#losses").text(losses);
-
-                console.log("in  else if (randNum < parseInt($('#score').text()))")
-
-            }
-
-            console.log(typeof randNum);*/
-
-        });
-
-
-
-
-
-
-
-
-    </script>
+    <script type="text/javascript" src="assets/javascript/game.js"> </script>
 
 
 </body>

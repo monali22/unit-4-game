@@ -1,90 +1,89 @@
-
 var wins = 0;
 var losses = 0;
+var check = false;
 
 $(document).ready(function () {
 
-    var guessNumber = $("#guessNumber");
+    function check(randNum) {
+        if (randNum === parseInt($("#score").text())) {
+            wins++;
+            $("#wins").text(wins);
+            $("#wltext").text("You Won");
+            playTheGame();
+            //return;
+        }
+        if (randNum < parseInt($("#score").text())) {
+            losses++;
+            $("#losses").text(losses);
+            $("#wltext").text("You Lost");
+            playTheGame();
+            //return;
+        }
+    }
 
-    var randNum = Math.floor((Math.random() * 100) + 1);
+    function playTheGame() {
+        var guessNumber = $("#guessNumber");
 
-    guessNumber.text(randNum);
+        var randNum = Math.floor((Math.random() * 100) + 1);
 
-    
-    var score = $("#score");
-
-    score.text(0);
+        guessNumber.text(randNum);
 
 
-    $("#wins").text(wins);
+        var score = $("#score");
 
-    $("#losses").text(losses);
-
-    if (randNum == parseInt($('#score').text())){
+        score.text(0);
 
 
-        ++wins;
         $("#wins").text(wins);
-
-    }
-    else if (randNum > parseInt($('#score').text())) {
-
-        console.log(randNum < parseInt($('#score').text()));
-        $("#hexa").on("click", function () {
-
-            var num1 = score.text();
-
-            var num = parseInt(num1) + 6;
-
-            score.text(num);
-
-
-
-        });
-
-
-        $("#circ").on("click", function () {
-
-            var num1 = score.text();
-
-            var num = parseInt(num1) + 1;
-
-            score.text(num);
-
-        });
-
-
-        $("#octa").on("click", function () {
-
-            var num1 = score.text();
-
-            var num = parseInt(num1) + 8;
-
-            score.text(num);
-
-        });
-
-        $("#squa").on("click", function () {
-
-            var num1 = score.text();
-
-            var num = parseInt(num1) + 4;
-
-            score.text(num);
-
-        });
-
-
-    }
-    else if (randNum$ < parseInt($('#score').text())) {
-
-        ++losses;
 
         $("#losses").text(losses);
 
+        var nums = [];
+
+
+        for (var i = 1; i < 10; i++) {
+            var randNum2 = Math.floor((Math.random() * 10) + 1);
+            if (nums.indexOf(randNum2) == -1) nums.push(randNum2);
+        }
+        console.log(nums);
+        if (randNum > parseInt($("#score").text())) {
+        $("#img1").on("click", function () {
+            var num = parseInt($("#score").text()) + nums[0];
+            score.text(num);
+            check(randNum);
+        });
+        $("#img2").on("click", function () {
+            var num = parseInt($("#score").text()) + nums[1];
+            score.text(num);
+            check(randNum);
+        });
+        $("#img3").on("click", function () {
+            var num = parseInt($("#score").text()) + nums[2];
+            score.text(num);
+            check(randNum);
+        });
+        $("#img4").on("click", function () {
+            var num = parseInt($("#score").text()) + nums[3];
+            score.text(num);
+            check(randNum);
+        });
     }
 
-console.log(typeof randNum);
+    }
+
+
+
+
+    
+
+    playTheGame();
+
+    
 
 });
+
+
+
+
+
 
